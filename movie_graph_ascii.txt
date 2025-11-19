@@ -1,0 +1,56 @@
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                   Neptune Analytics Movie Graph Schema                    ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+                    ┌─────────────┐
+                    │   Genre     │
+                    │   (장르)    │
+                    └──────┬──────┘
+                           │ HAS_GENRE
+                           ↓
+    ┌──────────────┐   ┌───────────────────┐   ┌──────────────┐
+    │ Production   │   │                   │   │   Country    │
+    │   Company    │──→│      MOVIE        │←──│   (국가)     │
+    │  (제작사)    │   │      (영화)       │   └──────────────┘
+    └──────────────┘   │                   │   PRODUCED_IN
+     PRODUCED_BY       │   tmdbId, title   │
+                       │   budget, revenue │
+    ┌──────────────┐   │   runtime, etc    │   ┌──────────────┐
+    │   Spoken     │   │                   │   │              │
+    │  Language    │──→│                   │   │              │
+    │   (언어)     │   └───────────────────┘   │              │
+    └──────────────┘           ↑               │              │
+     HAS_LANGUAGE              │               │              │
+                               │               │              │
+                    ┌──────────┴──────────┐    │              │
+                    │                     │    │              │
+            ┌───────┴────────┐    ┌──────┴────┴───┐   ┌──────┴──────┐
+            │  Person:Actor  │    │ Person:Director│   │Person:Producer│
+            │    (배우)      │    │    (감독)      │   │ (프로듀서)   │
+            └────────────────┘    └────────────────┘   └──────────────┘
+                    │                     │                     │
+                    │ ACTED_IN            │ DIRECTED            │ PRODUCED
+                    │ (character)         │                     │
+                    └─────────────────────┴─────────────────────┘
+                                          ↑
+                                          │ RATED
+                                          │ (rating, timestamp)
+                                   ┌──────┴──────┐
+                                   │ Person:User │
+                                   │  (사용자)   │
+                                   └─────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+
+관계 요약:
+  • Movie -[HAS_GENRE]→ Genre
+  • Movie -[PRODUCED_BY]→ ProductionCompany
+  • Movie -[PRODUCED_IN]→ Country
+  • Movie -[HAS_LANGUAGE]→ SpokenLanguage
+  • Actor -[ACTED_IN]→ Movie (character, cast_id)
+  • Director -[DIRECTED]→ Movie
+  • Producer -[PRODUCED]→ Movie
+  • User -[RATED]→ Movie (rating, timestamp)
+
+═══════════════════════════════════════════════════════════════════════════
