@@ -507,32 +507,32 @@ def main():
     data_path = "./data"
     
     try:
-        # # 영화 로딩 (전체)
-        # graph.load_movies(f'{data_path}/normalized_movies.csv', movie_limit)
+        # 영화 로딩 (전체)
+        graph.load_movies(f'{data_path}/normalized_movies.csv', movie_limit)
         
-        # # 장르 로딩
-        # graph.load_genres(f'{data_path}/normalized_genres.csv')
+        # 장르 로딩
+        graph.load_genres(f'{data_path}/normalized_genres.csv')
         
-        # # 제작사 로딩
-        # graph.load_production_companies(f'{data_path}/normalized_production_companies.csv')
+        # 제작사 로딩
+        graph.load_production_companies(f'{data_path}/normalized_production_companies.csv')
         
-        # # 제작 국가 로딩
-        # graph.load_production_countries(f'{data_path}/normalized_production_countries.csv')
+        # 제작 국가 로딩
+        graph.load_production_countries(f'{data_path}/normalized_production_countries.csv')
         
-        # # 언어 로딩
-        # graph.load_spoken_languages(f'{data_path}/normalized_spoken_languages.csv')
+        # 언어 로딩
+        graph.load_spoken_languages(f'{data_path}/normalized_spoken_languages.csv')
         
-        # # 키워드 로딩
-        # graph.load_keywords(f'{data_path}/normalized_keywords.csv')
+        # 키워드 로딩
+        graph.load_keywords(f'{data_path}/normalized_keywords.csv')
         
-        # # 배우 로딩
-        # graph.load_person_actors(f'{data_path}/normalized_cast.csv')
+        # 배우 로딩
+        graph.load_person_actors(f'{data_path}/normalized_cast.csv')
         
-        # # 제작진 로딩
-        # graph.load_person_crew(f'{data_path}/normalized_crew.csv')
+        # 제작진 로딩
+        graph.load_person_crew(f'{data_path}/normalized_crew.csv')
         
-        # # 링크 로딩
-        # graph.load_links(f'{data_path}/normalized_links.csv')
+        # 링크 로딩
+        graph.load_links(f'{data_path}/normalized_links.csv')
         
         # # 평점 로딩
         graph.load_ratings(f'{data_path}/normalized_ratings_small.csv')
