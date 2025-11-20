@@ -3,7 +3,8 @@ Vector Search Implementation using Neptune Analytics and Bedrock Embeddings
 """
 
 import sys
-sys.path.append('/home/ec2-user/strandtest/moive')
+
+sys.path.append('../')
 
 from tool import get_neptune_client
 from bedrock_embedding import BedrockEmbedding
